@@ -40,7 +40,6 @@ export interface ProductList {
     "verStatusId": number,
     "workMode": number,
     "workModeName": string,
-    'listindex': number;
 }
 
 /*

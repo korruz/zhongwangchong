@@ -47,7 +47,7 @@ let requestOptions: AxiosRequestConfig = {
   headers,
   url: "api/njjwn/eleProductList.action?queryValue=gpsId%3A57201%3BdevType%3A2%3Bsn%3A10753209527%3B"
 };
-const data = ref<[ProductList[]]>([[]]);
+const data = ref<[{ listindex: number, value: ProductList[] }]>([{ listindex: 0, value: [] }]);
 const dataLoaded = ref(false);
 
 onMounted(() => {
@@ -60,8 +60,7 @@ onMounted(() => {
     axios(requestOptions)
       .then(response => {
         let cur = response.data.list;
-        cur.listindex = i;
-        data.value.push(cur); console.log(response.data.list); console.log(i); if (i == params.length - 1) {
+        data.value.push({ 'listindex': i, value: cur }); console.log(response.data.list); console.log(i); if (i == params.length - 1) {
           dataLoaded.value = true
         }
       })
@@ -78,7 +77,7 @@ onMounted(() => {
         <div v-if="index > 0">
           <div>{{ list.listindex + 1 }} 号充电站</div>
           <div class="container">
-            <div v-for="item in list" :key="item.id">
+            <div v-for="item in list.value" :key="item.id">
               <div v-if="item.status == '工作中'">
                 <button class="btn btn-secondary">{{ item.name }}, {{ item.status }}</button>
               </div>
