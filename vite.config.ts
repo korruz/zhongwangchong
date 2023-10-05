@@ -14,7 +14,6 @@ export default defineConfig({
     outDir: './dist'
   },
   server: {
-    port: 80,
     proxy: {
       '/api': {
         target: 'http://wx.jwnzn.com',
