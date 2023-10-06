@@ -1,18 +1,36 @@
-# Vue 3 + TypeScript + Vite
+# 中网充充电站可视化
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+技术栈：Vue+Vite+Typescript+BootStrap5+Vercel
 
-## Recommended IDE Setup
+## 项目介绍
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+源：中网充需要在微信客户端中才能查看充电站电量及相应情况，每次查看加载很慢，并且每次只能看一个充电站。
 
-## Type Support For `.vue` Imports in TS
+析：使用小黄鸟抓包请求数据，分析其中的规律，整合请求网址，`Apifox` 测试接口。
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+落：使用 `axios` 请求数据，使用 `BootStrap5` 框架，使用 `Vecel` 部署项目。
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## 意料之外
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+1. 项目部署到 `Vecel` 后无法跨域请求。
+   
+   这篇文章[^1] 提到了部署项目到 `Vecel` 中确实需要重新配置代理。
+
+   这两篇官方文档[^2] [^3] 也提到了需要配置代理。
+
+2. 引入 `BootStrap5` 出现一些小问题
+
+   想要引入 `BootStrap5` ，可以直接根据官方文档[^4]来。
+
+   但是要注意修改 `vite.config.ts` 时，不要直接加入 `root: path.resolve(__dirname, 'src')` 这一行，可能会导致启动不了。
+
+## TODO
+
+封装网址请求接口。
+
+## 参考
+
+[^1]: https://lsworl.github.io/2022/05/27/shi-yong-vercel-lai-bu-shu-jing-tai-ye-mian-bing-jie-jue-kua-yu-wen-ti/
+[^2]: https://vercel.com/docs/projects/project-configuration#rewrites-examples
+[^3]: https://vercel.com/guides/how-to-enable-cors#enabling-cors-using-vercel.json
+[^4]: https://getbootstrap.com/docs/5.3/getting-started/vite/
