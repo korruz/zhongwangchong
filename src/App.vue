@@ -76,7 +76,7 @@ onMounted(() => {
 <template>
   <div class="main">
     <div v-if="dataLoaded" class="databoard">
-      <div v-for="(list, index) in data" :key="index">
+      <div v-for="list in data" :key="list.listindex">
         <div v-if="list.listindex > 0" class="station">
           <div class="d-inline p-2 m-2 text-bg-primary">{{ list.listindex }} 号充电站</div>
           <div class="container text-center">
