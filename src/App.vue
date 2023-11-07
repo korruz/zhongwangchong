@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import { ProductList } from './types/productList.ts';
 
@@ -42,33 +42,53 @@ const params = [
   }
 ]
 
-let requestOptions: AxiosRequestConfig = {
-  method: 'GET',
-  headers,
-  url: "api/njjwn/eleProductList.action?queryValue=gpsId%3A57201%3BdevType%3A2%3Bsn%3A10753209527%3B"
-};
-const data = ref<[{ listindex: number, value: ProductList[] }]>([{ listindex: 0, value: [] }]);
+
+const data = ref<{ listindex: number, value: ProductList[] }[]>([{ listindex: 0, value: [] }]);
 const dataLoaded = ref(false);
 
 onMounted(() => {
-  for (let i = 1; i < params.length + 1; ++i) {
-    requestOptions = {
+  const requests = params.map((param, index) => {
+    const requestOptions = {
       method: 'GET',
       headers,
-      url: `api/njjwn/eleProductList.action?queryValue=gpsId%3A${params[i - 1].gpsId}%3BdevType%3A2%3Bsn%3A${params[i - 1].sn}%3B`
-    }
-    axios(requestOptions)
-      .then(response => {
-        let cur = response.data.list;
-        data.value.push({ 'listindex': i, value: cur }); if (i == params.length) {
-          data.value.sort(function (a, b) {
-            return a.listindex - b.listindex;
-          });
-          dataLoaded.value = true;
-        }
-      })
-      .catch(error => console.log('error', error));
-  }
+      url: `api/njjwn/eleProductList.action?queryValue=gpsId%3A${param.gpsId}%3BdevType%3A2%3Bsn%3A${param.sn}%3B`
+    };
+
+    return axios(requestOptions).then(response => {
+      return { 'listindex': index + 1, value: response.data.list as ProductList[] };
+    });
+  });
+
+  Promise.all(requests)
+    .then(results => {
+      // 由于 Promise.all 保证了顺序，我们可以直接赋值
+      data.value = results;
+      // 如果你想在此处进行额外的排序，也可以这样做
+      data.value.sort((a, b) => a.listindex - b.listindex);
+      dataLoaded.value = true;
+    })
+    .catch(error => {
+      console.log('error', error);
+    });
+
+  // for (let i = 1; i < params.length + 1; ++i) {
+  //   requestOptions = {
+  //     method: 'GET',
+  //     headers,
+  //     url: `api/njjwn/eleProductList.action?queryValue=gpsId%3A${params[i - 1].gpsId}%3BdevType%3A2%3Bsn%3A${params[i - 1].sn}%3B`
+  //   }
+  //   axios(requestOptions)
+  //     .then(response => {
+  //       let cur = response.data.list;
+  //       data.value.push({ 'listindex': i, value: cur }); if (i == params.length) {
+  //         data.value.sort(function (a, b) {
+  //           return a.listindex - b.listindex;
+  //         });
+  //         dataLoaded.value = true;
+  //       }
+  //     })
+  //     .catch(error => console.log('error', error));
+  // }
 });
 
 </script>
