@@ -51,17 +51,20 @@ const data = ref<[{ listindex: number, value: ProductList[] }]>([{ listindex: 0,
 const dataLoaded = ref(false);
 
 onMounted(() => {
-  for (let i = 0; i < params.length; ++i) {
+  for (let i = 1; i < params.length + 1; ++i) {
     requestOptions = {
       method: 'GET',
       headers,
-      url: `api/njjwn/eleProductList.action?queryValue=gpsId%3A${params[i].gpsId}%3BdevType%3A2%3Bsn%3A${params[i].sn}%3B`
+      url: `api/njjwn/eleProductList.action?queryValue=gpsId%3A${params[i - 1].gpsId}%3BdevType%3A2%3Bsn%3A${params[i - 1].sn}%3B`
     }
     axios(requestOptions)
       .then(response => {
         let cur = response.data.list;
-        data.value.push({ 'listindex': i, value: cur }); console.log(response.data.list); console.log(i); if (i == params.length - 1) {
-          dataLoaded.value = true
+        data.value.push({ 'listindex': i, value: cur }); if (i == params.length) {
+          data.value.sort(function (a, b) {
+            return a.listindex - b.listindex;
+          });
+          dataLoaded.value = true;
         }
       })
       .catch(error => console.log('error', error));
@@ -71,18 +74,23 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <div v-if="dataLoaded">
+  <div class="main">
+    <div v-if="dataLoaded" class="databoard">
       <div v-for="(list, index) in data" :key="index">
-        <div v-if="index > 0">
-          <div>{{ list.listindex + 1 }} 号充电站</div>
-          <div class="container">
-            <div v-for="item in list.value" :key="item.id">
-              <div v-if="item.status == '工作中'">
-                <button class="btn btn-secondary">{{ item.name }}, {{ item.status }}</button>
-              </div>
-              <div v-else-if="item.status == '空闲'">
-                <button class="btn btn-success">{{ item.name }}, {{ item.status }}</button>
+        <div v-if="list.listindex > 0" class="station">
+          <div class="d-inline p-2 m-2 text-bg-primary">{{ list.listindex }} 号充电站</div>
+          <div class="container text-center">
+            <div class="items row">
+              <div v-for="item in list.value" :key="item.id" class=" col">
+                <div v-if="item.status == '工作中'">
+                  <button class="btn btn-secondary item">{{ item.name }}, {{ item.status }}</button>
+                </div>
+                <div v-if="item.status == '空闲'">
+                  <button class="btn btn-success item">{{ item.name }}, {{ item.status }}</button>
+                </div>
+                <div v-if="item.status == '故障'">
+                  <button class="btn btn-danger item">{{ item.name }}, {{ item.status }}</button>
+                </div>
               </div>
             </div>
           </div>
@@ -92,20 +100,45 @@ onMounted(() => {
     <div v-else>
       Loading...
     </div>
-
   </div>
 </template>
 
 <style scoped types="scss">
-.container {
+.main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 10px;
+  flex-wrap: wrap;
 
-  .btn {
-    align-content: center;
+  .databoard {
+    width: 350px;
+
+    .station {
+      border-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        .items {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          width: 350px;
+          gap: 5px;
+          justify-items: center;
+          align-items: center;
+
+          .item {
+            width: 150px;
+            height: 50px;
+          }
+        }
+      }
+    }
   }
 }
 </style>
