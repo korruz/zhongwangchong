@@ -183,6 +183,7 @@ function load_data_2() {
 <template>
     <div class="main">
         <div>从桔园餐厅那一侧开始计数</div>
+        <div> 点击下方按钮选择充电站 </div>
         <div class="station_select">
             <button class="btn btn-warning station_select" v-on:click="load_data_1">1号充电站</button>
             <button class="btn btn-warning station_select" v-on:click="load_data_2">2号充电站</button>
@@ -193,7 +194,7 @@ function load_data_2() {
                     <div v-if="list.listindex > 0" class="station">
                         <div class="d-inline p-2 m-2 text-bg-primary">{{ list.listindex }} 号充电桩 ({{
                             list.result.data?.boxCode
-                            }})</div>
+                        }})</div>
                         <div class="container text-center">
                             <div class="items row">
                                 <div v-for="item in list.result.data?.connectors" class=" col">
@@ -204,7 +205,7 @@ function load_data_2() {
                                         <button class="btn btn-success item">{{ item.connectorId }}, 绿灯(4)</button>
                                     </div>
                                     <div v-if="item.connectorStatus == 5">
-                                        <button class="btn btn-danger item">{{ item.connectorId }}, 损坏(5)</button>
+                                        <button class="btn btn-success item">{{ item.connectorId }}, 绿灯(5)</button>
                                     </div>
                                     <div v-if="item.connectorStatus == 11">
                                         <button class="btn btn-success item">{{ item.connectorId }}, 绿灯(11)</button>

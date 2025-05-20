@@ -96,6 +96,7 @@ onMounted(() => {
 
 <template>
     <div class="main">
+        <div v-if="!dataLoaded">(请求较慢，请耐心等待)</div>
         <div v-if="dataLoaded" class="databoard">
             <div v-for="list in data" :key="list.listindex">
                 <div v-if="list.listindex > 0" class="station">

@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import select_1 from "./components/Select_1.vue";
-import select_2 from "./components/Select_2.vue";
-import select_3 from "./components/Select_3.vue";
+import Select_1 from "./components/Select_1.vue";
+import Select_2 from "./components/Select_2.vue";
+import Select_3 from "./components/Select_3.vue";
+import Select_4 from "./components/Select_4.vue";
+import Select_5 from "./components/Select_5.vue";
 
 const place_options = [
   { value: 1, text: "材料大楼" },
   { value: 2, text: "西门" },
-  { value: 3, text: "蕙园浴室" }
+  { value: 3, text: "蕙园浴室" },
+  { value: 4, text: "蕙园运动场" },
+  { value: 5, text: "理工楼" },
 ];
-const selectedOption = ref(2);
+const selectedOption = ref(1);
 </script>
 
 <template>
   <div class="main">
+    <div>使用帮助/问题解答 QQ 群: 257302835</div>
     <div>
       <div class="form-floating">
         <select class="form-select" id="floatingSelect" v-model="selectedOption"
@@ -26,13 +31,19 @@ const selectedOption = ref(2);
       </div>
     </div>
     <div v-if="selectedOption === 1">
-      <select_1></select_1>
+      <Select_1></Select_1>
     </div>
     <div v-if="selectedOption === 2">
-      <select_2></select_2>
+      <Select_2></Select_2>
     </div>
     <div v-if="selectedOption === 3">
-      <select_3></select_3>
+      <Select_3></Select_3>
+    </div>
+    <div v-if="selectedOption === 4">
+      <Select_4></Select_4>
+    </div>
+    <div v-if="selectedOption === 5">
+      <Select_5></Select_5>
     </div>
   </div>
 </template>

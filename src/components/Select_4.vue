@@ -13,267 +13,211 @@ const headers = {
 
 const params1 = [
     {
-        "boxCode": "78080643",
+        "boxCode": "83001329",
     },
     {
-        "boxCode": "84001789",
+        "boxCode": "99000929",
     },
     {
-        "boxCode": "11007351",
+        "boxCode": "61007718",
     },
     {
-        "boxCode": "41007997",
+        "boxCode": "31007710",
     },
     {
-        "boxCode": "20007007",
+        "boxCode": "29007756",
     },
     {
-        "boxCode": "99080650",
+        "boxCode": "65080066",
     },
     {
-        "boxCode": "34080657",
+        "boxCode": "93080867",
     },
     {
-        "boxCode": "74001223",
+        "boxCode": "22089916",
     },
     {
-        "boxCode": "74003272",
+        "boxCode": "00007807",
     },
     {
-        "boxCode": "04001770",
-    },
-    {
-        "boxCode": "98001749",
-    },
-    {
-        "boxCode": "64001606",
-    },
-    {
-        "boxCode": "80088112",
-    },
-    {
-        "boxCode": "99007809",
-    },
-    {
-        "boxCode": "26001290",
-    },
-    {
-        "boxCode": "75001719",
-    },
-    {
-        "boxCode": "59001291",
-    },
-    {
-        "boxCode": "15001771",
-    },
-    {
-        "boxCode": "64003467",
-    },
-    {
-        "boxCode": "43089460",
-    },
-    {
-        "boxCode": "09089373",
-    },
-    {
-        "boxCode": "51080603",
-    },
-    {
-        "boxCode": "07089887",
-    },
-    {
-        "boxCode": "00080591",
-    },
-    {
-        "boxCode": "88080673",
-    },
-    {
-        "boxCode": "04080671",
-    },
-    {
-        "boxCode": "74080606",
-    },
-    {
-        "boxCode": "79089837",
-    },
-    {
-        "boxCode": "36003276",
-    },
-    {
-        "boxCode": "07080533",
-    },
-    {
-        "boxCode": "28001616",
-    },
-    {
-        "boxCode": "81001619",
-    },
-    {
-        "boxCode": "15080609",
-    },
-    {
-        "boxCode": "93006087",
-    },
-    {
-        "boxCode": "52080619",
-    },
-    {
-        "boxCode": "69089510",
-    },
-    {
-        "boxCode": "84080317",
-    },
-    {
-        "boxCode": "43089028",
-    },
-    {
-        "boxCode": "46009585",
+        "boxCode": "18009588",
     }
 ]
 
 const params2 = [
     {
-        "boxCode": "14088257",
+        "boxCode": "68007084",
     },
     {
-        "boxCode": "54086466",
+        "boxCode": "45001233",
     },
     {
-        "boxCode": "81088761",
+        "boxCode": "72007803",
     },
     {
-        "boxCode": "12089912",
+        "boxCode": "83007004",
     },
     {
-        "boxCode": "58089592",
+        "boxCode": "69001297",
     },
     {
-        "boxCode": "78083444",
+        "boxCode": "66080862",
     },
     {
-        "boxCode": "60089480",
+        "boxCode": "17007750",
     },
     {
-        "boxCode": "24089564",
+        "boxCode": "58080307",
     },
     {
-        "boxCode": "89086082",
+        "boxCode": "30080044",
     },
     {
-        "boxCode": "31086879",
-    },
-    {
-        "boxCode": "05083428",
-    },
-    {
-        "boxCode": "04089587",
-    },
-    {
-        "boxCode": "18089906",
-    },
-    {
-        "boxCode": "85086596",
-    },
-    {
-        "boxCode": "16086959",
-    },
-    {
-        "boxCode": "37083571",
-    },
-    {
-        "boxCode": "85080782",
-    },
-    {
-        "boxCode": "74088127",
-    },
-    {
-        "boxCode": "61086952",
-    },
-    {
-        "boxCode": "08089487",
-    },
-    {
-        "boxCode": "64089569",
-    },
-    {
-        "boxCode": "25083493",
-    },
-    {
-        "boxCode": "66083578",
-    },
-    {
-        "boxCode": "33089549",
-    },
-    {
-        "boxCode": "80089536",
-    },
-    {
-        "boxCode": "56086805",
-    },
-    {
-        "boxCode": "34083853",
-    },
-    {
-        "boxCode": "13089656",
-    },
-    {
-        "boxCode": "98083636",
-    },
-    {
-        "boxCode": "67086995",
-    },
-    {
-        "boxCode": "20083504",
-    },
-    {
-        "boxCode": "16089711",
-    },
-    {
-        "boxCode": "77086854",
-    },
-    {
-        "boxCode": "01089420",
-    },
-    {
-        "boxCode": "25083997",
+        "boxCode": "24006067",
     }
 ]
 
+const params3 = [
+    {
+        "boxCode": "23001364",
+    },
+    {
+        "boxCode": "29080932",
+    },
+    {
+        "boxCode": "83080627",
+    },
+    {
+        "boxCode": "61007308",
+    },
+    {
+        "boxCode": "17080861",
+    },
+    {
+        "boxCode": "65080050",
+    },
+    {
+        "boxCode": "13007805",
+    },
+    {
+        "boxCode": "20080058",
+    },
+    {
+        "boxCode": "87080888",
+    },
+    {
+        "boxCode": "75003537",
+    }
+]
+
+const params4 = [
+    {
+        "boxCode": "57080933",
+    },
+    {
+        "boxCode": "32007297",
+    },
+    {
+        "boxCode": "45088039",
+    },
+    {
+        "boxCode": "25080946",
+    },
+    {
+        "boxCode": "43007264",
+    },
+    {
+        "boxCode": "48001475",
+    },
+    {
+        "boxCode": "20080881",
+    },
+    {
+        "boxCode": "64001781",
+    },
+    {
+        "boxCode": "69001709",
+    },
+    {
+        "boxCode": "48009496",
+    }
+]
+
+const params5 = [
+    {
+        "boxCode": "98007952",
+    },
+    {
+        "boxCode": "31080633",
+    },
+    {
+        "boxCode": "74089500",
+    },
+    {
+        "boxCode": "32001477",
+    },
+    {
+        "boxCode": "69007109",
+    },
+    {
+        "boxCode": "58001704",
+    },
+    {
+        "boxCode": "26007712",
+    },
+    {
+        "boxCode": "95080938",
+    },
+    {
+        "boxCode": "87080381",
+    },
+    {
+        "boxCode": "70089282",
+    }
+]
+
+const params6 = [
+    {
+        "boxCode": "68001630",
+    },
+    {
+        "boxCode": "03007443",
+    },
+    {
+        "boxCode": "22001708",
+    },
+    {
+        "boxCode": "83088033",
+    },
+    {
+        "boxCode": "22007059",
+    },
+    {
+        "boxCode": "15080935",
+    },
+    {
+        "boxCode": "95088097",
+    },
+    {
+        "boxCode": "01080978",
+    },
+    {
+        "boxCode": "19001449",
+    },
+    {
+        "boxCode": "20006053",
+    }
+]
+
+const params = [params1, params2, params3, params4, params5, params6];
+
 const data = ref<{ listindex: number, result: ProductList }[]>([{ listindex: 0, result: {} }]);
-// const data: any = {};
+
 const dataLoaded = ref(true);
-function load_data_1() {
+function load_data(i: number) {
     data.value = [];
     dataLoaded.value = false;
-    const requests = params1.map((param, index) => {
-        const requestOptions = {
-            method: 'GET',
-            headers,
-            url: `api2/order/prepareChargeOrder?boxCode=${param.boxCode}`,
-        };
-
-        return axios(requestOptions).then(response => {
-            return { 'listindex': index + 1, result: response.data as ProductList };
-        });
-    });
-
-    Promise.all(requests)
-        .then(results => {
-            // 由于 Promise.all 保证了顺序，我们可以直接赋值
-            data.value = results;
-            // 如果你想在此处进行额外的排序，也可以这样做
-            data.value.sort((a: any, b: any) => a.listindex - b.listindex);
-            dataLoaded.value = true;
-        })
-        .catch(error => {
-            console.log('error', error);
-        });
-}
-
-function load_data_2() {
-    data.value = [];
-    dataLoaded.value = false;
-    const requests = params2.map((param, index) => {
+    const requests = params[i].map((param: any, index: any) => {
         const requestOptions = {
             method: 'GET',
             headers,
@@ -302,11 +246,10 @@ function load_data_2() {
 
 <template>
     <div class="main">
-        <div>从蕙园浴室门口那一侧开始计数</div>
+        <div>从蕙园运动场那一侧开始计数</div>
         <div> 点击下方按钮选择充电站 </div>
         <div class="station_select">
-            <button class="btn btn-warning station_select" v-on:click="load_data_1">1号充电站</button>
-            <button class="btn btn-warning station_select" v-on:click="load_data_2">2号充电站</button>
+            <button class="btn btn-warning " v-for="i in 6" v-on:click="load_data(i - 1)">{{ i }}号充电站</button>
         </div>
         <div class="detail">
             <div v-if="dataLoaded" class="databoard">

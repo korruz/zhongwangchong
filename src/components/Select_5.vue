@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { ProductList } from '../types/productList_2.ts';
 
 const headers = {
@@ -13,267 +13,137 @@ const headers = {
 
 const params1 = [
     {
-        "boxCode": "78080643",
+        "boxCode": "78086939",
     },
     {
-        "boxCode": "84001789",
+        "boxCode": "52006822",
     },
     {
-        "boxCode": "11007351",
+        "boxCode": "04083356",
     },
     {
-        "boxCode": "41007997",
+        "boxCode": "85086318",
     },
     {
-        "boxCode": "20007007",
+        "boxCode": "57089504",
     },
     {
-        "boxCode": "99080650",
+        "boxCode": "27088759",
     },
     {
-        "boxCode": "34080657",
+        "boxCode": "04089779",
     },
     {
-        "boxCode": "74001223",
+        "boxCode": "08089664",
     },
     {
-        "boxCode": "74003272",
+        "boxCode": "88083015",
     },
     {
-        "boxCode": "04001770",
+        "boxCode": "12083983",
     },
     {
-        "boxCode": "98001749",
+        "boxCode": "02083325",
     },
     {
-        "boxCode": "64001606",
+        "boxCode": "71086359",
     },
     {
-        "boxCode": "80088112",
+        "boxCode": "83083260",
     },
     {
-        "boxCode": "99007809",
+        "boxCode": "77086079",
     },
     {
-        "boxCode": "26001290",
+        "boxCode": "69089954",
     },
     {
-        "boxCode": "75001719",
+        "boxCode": "65089625",
     },
     {
-        "boxCode": "59001291",
+        "boxCode": "46086648",
     },
     {
-        "boxCode": "15001771",
+        "boxCode": "83083321",
     },
     {
-        "boxCode": "64003467",
+        "boxCode": "50086697",
     },
     {
-        "boxCode": "43089460",
+        "boxCode": "10088109",
     },
     {
-        "boxCode": "09089373",
+        "boxCode": "13083386",
     },
     {
-        "boxCode": "51080603",
+        "boxCode": "22089464",
     },
     {
-        "boxCode": "07089887",
+        "boxCode": "14086352",
     },
     {
-        "boxCode": "00080591",
+        "boxCode": "09086047",
     },
     {
-        "boxCode": "88080673",
+        "boxCode": "97083326",
     },
     {
-        "boxCode": "04080671",
+        "boxCode": "94086368",
     },
     {
-        "boxCode": "74080606",
+        "boxCode": "15088254",
     },
     {
-        "boxCode": "79089837",
+        "boxCode": "38086289",
     },
     {
-        "boxCode": "36003276",
+        "boxCode": "17089676",
     },
     {
-        "boxCode": "07080533",
+        "boxCode": "95083706",
     },
     {
-        "boxCode": "28001616",
+        "boxCode": "84089033",
     },
     {
-        "boxCode": "81001619",
+        "boxCode": "42083380",
     },
     {
-        "boxCode": "15080609",
+        "boxCode": "73088123",
     },
     {
-        "boxCode": "93006087",
+        "boxCode": "03086970",
     },
     {
-        "boxCode": "52080619",
+        "boxCode": "18083302",
     },
     {
-        "boxCode": "69089510",
+        "boxCode": "78086341",
     },
     {
-        "boxCode": "84080317",
+        "boxCode": "34086646",
     },
     {
-        "boxCode": "43089028",
+        "boxCode": "73089619",
     },
     {
-        "boxCode": "46009585",
+        "boxCode": "17083953",
     }
 ]
 
-const params2 = [
-    {
-        "boxCode": "14088257",
-    },
-    {
-        "boxCode": "54086466",
-    },
-    {
-        "boxCode": "81088761",
-    },
-    {
-        "boxCode": "12089912",
-    },
-    {
-        "boxCode": "58089592",
-    },
-    {
-        "boxCode": "78083444",
-    },
-    {
-        "boxCode": "60089480",
-    },
-    {
-        "boxCode": "24089564",
-    },
-    {
-        "boxCode": "89086082",
-    },
-    {
-        "boxCode": "31086879",
-    },
-    {
-        "boxCode": "05083428",
-    },
-    {
-        "boxCode": "04089587",
-    },
-    {
-        "boxCode": "18089906",
-    },
-    {
-        "boxCode": "85086596",
-    },
-    {
-        "boxCode": "16086959",
-    },
-    {
-        "boxCode": "37083571",
-    },
-    {
-        "boxCode": "85080782",
-    },
-    {
-        "boxCode": "74088127",
-    },
-    {
-        "boxCode": "61086952",
-    },
-    {
-        "boxCode": "08089487",
-    },
-    {
-        "boxCode": "64089569",
-    },
-    {
-        "boxCode": "25083493",
-    },
-    {
-        "boxCode": "66083578",
-    },
-    {
-        "boxCode": "33089549",
-    },
-    {
-        "boxCode": "80089536",
-    },
-    {
-        "boxCode": "56086805",
-    },
-    {
-        "boxCode": "34083853",
-    },
-    {
-        "boxCode": "13089656",
-    },
-    {
-        "boxCode": "98083636",
-    },
-    {
-        "boxCode": "67086995",
-    },
-    {
-        "boxCode": "20083504",
-    },
-    {
-        "boxCode": "16089711",
-    },
-    {
-        "boxCode": "77086854",
-    },
-    {
-        "boxCode": "01089420",
-    },
-    {
-        "boxCode": "25083997",
-    }
-]
 
 const data = ref<{ listindex: number, result: ProductList }[]>([{ listindex: 0, result: {} }]);
-// const data: any = {};
+
 const dataLoaded = ref(true);
-function load_data_1() {
+
+onMounted(() => {
+    load_data();
+});
+
+function load_data() {
     data.value = [];
     dataLoaded.value = false;
     const requests = params1.map((param, index) => {
-        const requestOptions = {
-            method: 'GET',
-            headers,
-            url: `api2/order/prepareChargeOrder?boxCode=${param.boxCode}`,
-        };
-
-        return axios(requestOptions).then(response => {
-            return { 'listindex': index + 1, result: response.data as ProductList };
-        });
-    });
-
-    Promise.all(requests)
-        .then(results => {
-            // 由于 Promise.all 保证了顺序，我们可以直接赋值
-            data.value = results;
-            // 如果你想在此处进行额外的排序，也可以这样做
-            data.value.sort((a: any, b: any) => a.listindex - b.listindex);
-            dataLoaded.value = true;
-        })
-        .catch(error => {
-            console.log('error', error);
-        });
-}
-
-function load_data_2() {
-    data.value = [];
-    dataLoaded.value = false;
-    const requests = params2.map((param, index) => {
         const requestOptions = {
             method: 'GET',
             headers,
@@ -302,19 +172,14 @@ function load_data_2() {
 
 <template>
     <div class="main">
-        <div>从蕙园浴室门口那一侧开始计数</div>
-        <div> 点击下方按钮选择充电站 </div>
-        <div class="station_select">
-            <button class="btn btn-warning station_select" v-on:click="load_data_1">1号充电站</button>
-            <button class="btn btn-warning station_select" v-on:click="load_data_2">2号充电站</button>
-        </div>
+        <div>从外围到围墙顺序计数</div>
         <div class="detail">
             <div v-if="dataLoaded" class="databoard">
                 <div v-for="list in data" :key="list.listindex">
                     <div v-if="list.listindex > 0" class="station">
                         <div class="d-inline p-2 m-2 text-bg-primary">{{ list.listindex }} 号充电桩 ({{
                             list.result.data?.boxCode
-                        }})</div>
+                            }})</div>
                         <div class="container text-center">
                             <div class="items row">
                                 <div v-for="item in list.result.data?.connectors" class=" col">
